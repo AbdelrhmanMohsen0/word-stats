@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" prefWidth="918.0" styleClass="table-row" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.future.wordstats.controller.FileResultCellController">
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+   <HBox maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="fileNameCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="175.0" styleClass="table-cell" text="test.txt" textAlignment="CENTER" />
+      <Label fx:id="numWordsCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="105.0" styleClass="table-cell" text="999999999999" textAlignment="CENTER" />
+      <Label fx:id="numIsCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="105.0" styleClass="table-cell" text="99999999999" textAlignment="CENTER" />
+      <Label fx:id="numAreCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="105.0" styleClass="table-cell" text="99999999999" textAlignment="CENTER" />
+      <Label fx:id="numYouCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="105.0" styleClass="table-cell" text="99999999999" textAlignment="CENTER" />
+      <Label fx:id="longestCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="202.0" styleClass="table-cell" text="Longest" textAlignment="CENTER" />
+      <Label fx:id="shortestCell" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="50.0" prefWidth="134.0" styleClass="table-cell" text="Shortest" textAlignment="CENTER" />
+   </HBox>
+</AnchorPane>
