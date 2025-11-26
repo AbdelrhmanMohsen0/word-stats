@@ -36,7 +36,7 @@ public class FileResult {
     }
 
     public synchronized void compareAndSetIfLonger(String word) {
-        if (word.length() > longestWord.length()) {
+        if (word.length() >= longestWord.length()) {
             longestWord = word;
         }
     }
@@ -46,7 +46,7 @@ public class FileResult {
             shortestWord = word;
             return;
         }
-        if (word.length() < shortestWord.length()) {
+        if (word.length() <= shortestWord.length()) {
             shortestWord = word;
         }
     }
