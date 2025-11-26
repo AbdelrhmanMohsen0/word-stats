@@ -14,9 +14,9 @@ public class FileExplorerRunnable implements Runnable {
     private final AtomicBoolean stopped;
 
     public FileExplorerRunnable(ConcurrentLinkedQueue<FileResult> fileResultsQueue,
-                                AtomicReference<String> longestWord,
-                                AtomicReference<String> shortestWord,
-                                AtomicBoolean stopped) {
+            AtomicReference<String> longestWord,
+            AtomicReference<String> shortestWord,
+            AtomicBoolean stopped) {
         this.fileResultsQueue = fileResultsQueue;
         this.longestWord = longestWord;
         this.shortestWord = shortestWord;
@@ -42,23 +42,26 @@ public class FileExplorerRunnable implements Runnable {
         String[] words = line.split(" ");
         for (String word : words) {
             fileResult.incrementNumOfWords();
-            switch (word) {
+            String nword = word.replaceAll("[^a-zA-Z-—]+", "");
+
+            switch (nword) {
                 case "is" -> fileResult.incrementNumOfIsWords();
                 case "are" -> fileResult.incrementNumOfAreWords();
                 case "you" -> fileResult.incrementNumOfYouWords();
             }
 
-            if (word.trim().isEmpty()) {
+            if (nword.trim().isEmpty()) {
                 return;
             }
 
-            fileResult.compareAndSetIfLonger(word);
-            fileResult.compareAndSetIfShorter(word);
+            fileResult.compareAndSetIfLonger(nword);
+            fileResult.compareAndSetIfShorter(nword);
 
-            longestWord.updateAndGet(current -> word.length() > current.length() ? word : current);
+            longestWord.updateAndGet(current -> nword.length() >= current.length() ? nword : current);
             shortestWord.updateAndGet(current -> {
-                if (current.isEmpty()) return word;
-                return word.length() < current.length() ? word : current;
+                if (current.isEmpty())
+                    return nword;
+                return nword.length() <= current.length() ? nword : current;
             });
         }
     }
